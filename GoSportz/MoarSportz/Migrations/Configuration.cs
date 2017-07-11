@@ -19,13 +19,14 @@ namespace MoarSportz.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Roles.AddOrUpdate(
+              p => p.Id,
+                new Microsoft.AspNet.Identity.EntityFramework.IdentityRole { Id = "1", Name = "admin" },
+                new Microsoft.AspNet.Identity.EntityFramework.IdentityRole { Id = "2", Name = "super" },
+                new Microsoft.AspNet.Identity.EntityFramework.IdentityRole { Id = "3", Name = "coach" },
+                new Microsoft.AspNet.Identity.EntityFramework.IdentityRole { Id = "4", Name = "player" }
+
+            );
         }
     }
 }
