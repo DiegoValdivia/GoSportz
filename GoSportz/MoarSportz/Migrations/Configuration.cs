@@ -1,18 +1,17 @@
 namespace MoarSportz.Migrations
 {
-    using System;
+    using MoarSportz.Models;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MoarSportz.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+        AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(MoarSportz.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -25,7 +24,6 @@ namespace MoarSportz.Migrations
                 new Microsoft.AspNet.Identity.EntityFramework.IdentityRole { Id = "2", Name = "super" },
                 new Microsoft.AspNet.Identity.EntityFramework.IdentityRole { Id = "3", Name = "coach" },
                 new Microsoft.AspNet.Identity.EntityFramework.IdentityRole { Id = "4", Name = "player" }
-
             );
         }
     }
