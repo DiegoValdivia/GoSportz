@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MoarSportz.Models
 {
     public class LoadEntry
     {
-        public LoadEntry() // Verify
-        { }
+        [Key]
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public TimeSpan Duration { get; set; }
@@ -14,9 +15,9 @@ namespace MoarSportz.Models
         public int PerceivedExertionRating { get; set; } // Session RPE - Rating of Perceived Exertion
 
         // Foreign key
-        public int AthleteId { get; set; } // use user Id
-        
-        // Navigation property
-        public virtual IUser Athlete { get; set; }
+        public string AthleteId { get; set; }
+
+        [ForeignKey("AthleteId")]
+        public virtual ApplicationUser User { get; set; }
     }
 }
