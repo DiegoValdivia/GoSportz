@@ -15,9 +15,20 @@ namespace MoarSportz.Models
         public int PerceivedExertionRating { get; set; } // Session RPE - Rating of Perceived Exertion
 
         // Foreign key
-        public string AthleteId { get; set; }
+        public int AthleteId { get; set; }
 
         [ForeignKey("AthleteId")]
+        public virtual Athlete Athlete { get; set; }
+    }
+    public class Athlete
+    {
+        [Key]
+        public int AthleteId { get; set; }
+
+        // Foreign Key
+        public string AspNetUser { get; set; }
+
+        [ForeignKey("AspNetUser")]
         public virtual ApplicationUser User { get; set; }
     }
 }
