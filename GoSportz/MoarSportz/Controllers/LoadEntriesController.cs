@@ -7,17 +7,27 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MoarSportz.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MoarSportz.Controllers
 {
+    [Authorize(Roles = "Athlete")]
     public class LoadEntriesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: LoadEntries
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
-            var loadEntry = db.LoadEntry.Include(l => l.Athlete);
+            var userId = User.Identity.GetUserId();
+            var loadEntry = db.LoadEntry.Include(l => l.Athlete).Where(a => a.Athlete.User.Id == userId);
+
+            if (User.IsInRole("Admin"))
+            {
+                loadEntry = db.LoadEntry.Include(l => l.Athlete);
+            }
+
             return View(loadEntry.ToList());
         }
 
