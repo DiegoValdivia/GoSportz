@@ -31,6 +31,6 @@ namespace MoarSportz.Models
         }
 
         public DbSet<LoadEntry> LoadEntry { get; set; }
-        public DbSet<Athlete> Athletes { get; set; }
+        //public DbSet<Athlete> Athletes { get; set; }
     }
 }

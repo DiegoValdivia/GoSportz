@@ -9,16 +9,17 @@ namespace MoarSportz.Models
     {
         [Key]
         public int Id { get; set; }
+
+        // Foreign Key
+        public string AspNetUserId { get; set; }
+
         public DateTime CreatedDate { get; set; }
         public TimeSpan Duration { get; set; }
         public Decimal Load { get; set; }
         public int PerceivedExertionRating { get; set; } // Session RPE - Rating of Perceived Exertion
 
-        // Foreign key
-        public int AthleteId { get; set; }
-
-        [ForeignKey("AthleteId")]
-        public virtual Athlete Athlete { get; set; }
+        [ForeignKey("AspNetUserId")]
+        public virtual ApplicationUser AspNetUser { get; set; }
     }
     public class Athlete
     {

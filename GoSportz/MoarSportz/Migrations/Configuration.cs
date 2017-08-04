@@ -57,9 +57,9 @@ namespace MoarSportz.Migrations
                 userManager.AddToRole(athlete.Id, athleteRoleName);
             }
 
-            context.Athletes.AddOrUpdate(
-                a => a.AthleteId,
-                new Athlete { AspNetUser = athlete.Id });
+            //context.Athletes.AddOrUpdate(
+            //    a => a.AthleteId,
+            //    new Athlete { AspNetUser = athlete.Id });
         }
     }
 }
