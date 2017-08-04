@@ -30,7 +30,5 @@ namespace MoarSportz.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<LoadEntry> LoadEntry { get; set; }
-        //public DbSet<Athlete> Athletes { get; set; }
     }
 }
