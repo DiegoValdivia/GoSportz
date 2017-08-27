@@ -61,3 +61,4 @@ namespace MoarSportz.Models
         [ForeignKey("TeamId")]
         public virtual Team Team { get; set; }
     }
+}
