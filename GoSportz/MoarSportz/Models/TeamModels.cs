@@ -35,18 +35,29 @@ namespace MoarSportz.Models
     {
         [Key]
         public int TeamId { get; set; }
-        //public string Name { get; set; }
 
         // Nullable Foreign Key
-        public int? Athlete { get; set; }
+        public int? AthleteId { get; set; }
 
         // Nullable Foreign Key
-        public int? Coach { get; set; }
+        public int? CoachId { get; set; }
 
-        [ForeignKey("Athlete")]
+        [ForeignKey("AthleteId")]
         public virtual Athlete Player { get; set; }
 
-        [ForeignKey("Coach")]
-        public virtual Coach Admin { get; set; }
+        [ForeignKey("CoachId")]
+        public virtual Coach Coach { get; set; }
     }
-}
+
+    public class TeamInfo
+    {
+        [Key]
+        public int TeamInfoId { get; set; }
+
+        public string Name { get; set; }
+
+        public int TeamId { get; set; }
+
+        [ForeignKey("TeamId")]
+        public virtual Team Team { get; set; }
+    }
