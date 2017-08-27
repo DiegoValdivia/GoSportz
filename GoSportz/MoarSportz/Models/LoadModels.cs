@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -21,15 +20,5 @@ namespace MoarSportz.Models
         [ForeignKey("AspNetUserId")]
         public virtual ApplicationUser AspNetUser { get; set; }
     }
-    public class Athlete
-    {
-        [Key]
-        public int AthleteId { get; set; }
 
-        // Foreign Key
-        public string AspNetUser { get; set; }
-
-        [ForeignKey("AspNetUser")]
-        public virtual ApplicationUser User { get; set; }
-    }
 }
